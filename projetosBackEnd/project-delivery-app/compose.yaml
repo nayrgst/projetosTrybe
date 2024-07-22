@@ -1,0 +1,69 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    platform: linux/x86_64
+    working_dir: /app-frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    # Os `healthcheck` devem garantir que a aplicação
+    # está operacional, antes de liberar o container
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]  # Caso utilize outra porta interna para o front, altere ela aqui também
+      timeout: 10s
+      retries: 5
+  backend:
+    container_name: app_backend
+    build: ./backend
+    ports:
+      - 3001:3001
+    platform: linux/x86_64
+    working_dir: /app-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - APP_PORT=3001
+      - JWT_SECRET=jwt_secret
+      # Os dados abaixo se referem ao container `db`
+      # Dica: Relembre aqui da comunicação interna entre containers
+      - DB_USER=root
+      - DB_PASS=password
+      - DB_HOST=db
+      - DB_PORT=3306
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"] # Caso utilize outra porta interna para o back, altere ela aqui também
+      timeout: 10s
+      retries: 5
+ 
+  db:
+    image: mysql:8.0.31
+    platform: linux/x86_64 # para o MAC
+    container_name: delivery_app_db
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DB_NAME: delivery-app
+    networks:
+      - vitual_lan_Back-to-DB
+    cap_add:
+      - SYS_NICE
+
+networks:
+# The presence of these objects is sufficient to define them
+  vitual_wan_Front-to-Back: {}
+  vitual_lan_Back-to-DB: {}
+
+# As chaves `tty`, `stdin_open` e `command` fazem com que o container fique
+# rodando em segundo plano, bem como tornam possível o uso do comando
+# `docker attach`, já deixando o terminal atual acoplado ao container, direto
+# no bash. Apesar disso, utilizar o attach mais de uma vez irá replicar o
+# terminal, portanto é melhor utilizar o comando `docker exec`.
+
+# A renomeação da rede padrão é feita pois caso contrário o nome da rede será
+# o nome do diretório onde o arquivo atual se encontra, o que pode dificultar
