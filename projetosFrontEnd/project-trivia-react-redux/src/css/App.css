@@ -1,0 +1,32 @@
+* {
+  font-family: Open Sans , sans-serif;
+  text-align: center;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.dark {
+  background-color: #0d0d0d;
+  color: #038c33;
+  height: 100%;
+}
+
+.light {
+  background-color: #038c33;
+  color: #0d0d0d;
+  height: 100%;
+}
+
+:placeholder { /* Firefox 18- */
+  text-align: center;
+}
+
+::placeholder {  /* Firefox 19+ */
+  text-align: center;
+}
+

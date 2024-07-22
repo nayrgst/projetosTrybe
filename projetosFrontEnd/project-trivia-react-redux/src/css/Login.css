@@ -1,0 +1,61 @@
+.login-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-input-container {
+  align-items: center;
+  border: 3px solid rgb(213, 213, 213);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 50vh;
+  justify-content: center;
+  position: relative;
+  width: 21.5vw;
+}
+
+.login-input-container button {
+  margin-bottom: 15px;
+}
+
+.PLAY__BTN {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.PLAY__BTN, .SETTINGS__BTN {
+  align-items: center;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  margin-top: 50px;
+  width: 60px;
+}
+
+.SETTINGS__BTN {
+  border-radius: 50%;
+  bottom: 0;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  width: 30px;
+}
+
+.data-input {
+  border: 3px solid transparent;
+  border-radius: 25px;
+  box-shadow: 0 0 5px green;
+  margin: 0 0 15px;
+  padding: 5px 0;
+  transition: box-shadow 1s , transform 1s;
+  width: 15rem;
+}
+
+.data-input:focus {
+  box-shadow: 0 0 20px green;
+  transform: scale(1.1);
+}
