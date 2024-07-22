@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+section {
+  margin: auto;
+  width: 380px;
+  height: 90px;
+}
+
+header {
+  background-color: black;
+  padding: 5px;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  background:url(./imagem/wallpaperflare.com_wallpaper\ \(5\).jpg) no-repeat;
+  overflow-x: hidden;
+  background-size: cover;
+  font-family: Architects Daughter, cursive;
+}
+
+h2 { 
+  text-align:center;
+  background-image: linear-gradient(to right, rgb(162, 138, 228), rgb(110, 110, 207), rgb(112, 49, 156), violet);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  padding: 6px 0 0;
+  margin: auto;
+}
+
+
+.color {
+  border: solid 1px black;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+}
+
+.linha {
+  display: flex;
+}
+
+.pixel {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid black;
+
+}
+
+.selected {
+  background: black;
+}
+
+#title2 {
+  height: 40px;
+  background-color: #302244;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #fd1892 100%);
+  border-image-slice: 1;
+  margin-bottom: 1px;
+}
+
+#color-palette {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  margin-right: auto;
+  margin-left: 36.6%;
+  width: 390px;
+}
+
+#pixel-board {
+  align-items: center;
+  width: 211px;
+  height: 255px;
+  margin-left: 43.2%;
+  box-shadow: 5px 5px 5px 0 rgb(116, 114, 116);
+  background-color: #302244;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #fd1892 100%);
+  border-image-slice: 1;
+  margin-bottom: 300px;
+}
+
+#title {
+  text-align: center;
+    background-image: linear-gradient(to right, red, orange, rgb(110, 110, 25), rgb(162, 138, 228), blue, indigo, violet);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#black {
+  box-shadow: 5px 5px 7px 0 rgb(134, 134, 134);
+}
+
+#orange {
+  box-shadow: 3px 3px 7px 0 #e6ad45; 
+}
+
+#red{
+  box-shadow: 3px 3px 7px 0 #db3172; 
+}
+
+#blue{
+  box-shadow: 3px 3px 7px 0 #1caac4; 
+}
+
+#clear-board{
+  margin-left: 48.9%;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #fd1892 100%);
+  border-image-slice: 1;
+  margin-bottom: 1px;
+}
+
+.botao {
+  height: 40px;
+}
